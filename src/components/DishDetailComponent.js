@@ -37,19 +37,32 @@ class DishDetail extends Component {
         {
             return (<div></div>)
         }
-        
-        let options = { year: "numeric", month: "short", day: "numeric" };
-        return x.comments.map(comment => (
-        <ul key={comment.id} className="list-unstyled">
-            <li className="mb-2">{comment.comment}</li>
-            <li>
-                -- {comment.author}{" "}
-                {new Date(comment.date).toLocaleDateString("en-US", options)}
-            </li>
-        </ul>
-      ));
-    }
 
+
+        const comm = x.comments.map((comment) => {
+            return(
+                <div key={comment.id}>
+                    <ul className="list-unstyled">
+                        <div>
+                            <li>
+                                {comment.comment}
+                            </li>
+                            <li>
+                                -- {comment.author}, {(new Date(comment.date)).toDateString()}
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            );
+        });
+
+        return (
+            <div>
+                <div><h4>Comments</h4></div>
+                {comm}
+            </div>
+        );
+    }
 
     render() {
         
