@@ -67,7 +67,7 @@ class Header extends Component {
                     </div>
                 </Jumbotron>
 
-            </React.Fragment>
+                </React.Fragment>
         );
     }
 }
