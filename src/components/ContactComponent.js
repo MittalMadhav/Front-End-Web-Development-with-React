@@ -145,7 +145,11 @@ class Contact extends Component
                             <FormGroup row>
                                 <Label htmlFor="firstname" md={2}>First Name</Label>
                                 <Col md={10}>
-                                    <Input type="text" id="firstname" name="firstname" placeholder="firstname" value={this.state.firstname} valid={errors.firstname === ''} invalid={errors.firstname !== ''} onBlur={this.handleBlur('firstname')} onChange={this.handleInputChange}/>
+                                    <Input type="text" id="firstname" name="firstname" placeholder="firstname" 
+                                           value={this.state.firstname} 
+                                           valid={errors.firstname === ''} invalid={errors.firstname !== ''} 
+                                           onBlur={this.handleBlur('firstname')} 
+                                           onChange={this.handleInputChange}/>
                                     <FormFeedback>{errors.firstname}</FormFeedback>
                                 </Col>
                             </FormGroup>
