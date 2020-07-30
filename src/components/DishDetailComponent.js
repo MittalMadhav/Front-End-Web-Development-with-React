@@ -32,7 +32,7 @@ function renderDish(dish)
 }
 
 
-function RenderComments({comments, addComment, currentDishId})
+function RenderComments({comments, postComment, currentDishId})
 {
     if (comments == null) 
     {
@@ -64,7 +64,7 @@ function RenderComments({comments, addComment, currentDishId})
                 <ul className ="list-unstyled">
                     {cmnts}
                 </ul>
-                <CommentForm currentDishId={currentDishId} addComment={addComment}/>
+                <CommentForm currentDishId={currentDishId} postComment={postComment}/>
             </div>
         );
     }
@@ -105,7 +105,7 @@ class CommentForm extends Component
     handleSubmit(values) 
     {
         this.toggleModal();
-        this.props.addComment(this.props.currentDishId, values.rating, values.author, values.comment);
+        this.props.postComment(this.props.currentDishId, values.rating, values.author, values.comment);
     }
 
 
@@ -233,7 +233,7 @@ function DishDetail(props)
                     </div> 
     
                     <div className = "col-sm-12 col-md-5 m-1 align-self-center text-center  ">
-                        <RenderComments comments={props.comments} addComment={props.addComment} currentDishId={props.dish.id}/>                       
+                        <RenderComments comments={props.comments} postComment={props.postComment} currentDishId={props.dish.id}/>                       
                     </div>    
     
                 </div>
