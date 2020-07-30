@@ -1,17 +1,23 @@
-import { COMMENTS } from '../shared/comments';
 import * as ActionTypes from './ActionTypes';
 
+export const reducerComments = (state = {  errMess: null, 
+                                    comments:[] }, action) => {
 
-export const reducerComments = (state=COMMENTS, action) => {
+  switch (action.type) 
+  {
+    case ActionTypes.ADD_COMMENTS:
+      return {...state, errMess: null, comments: action.payload};
 
-    switch(action.type) 
-    {
-        case ActionTypes.ADD_COMMENT:
-            var comment = action.payload;
-            comment.id = state.length;
-            comment.date = new Date().toISOString();
-            return state.concat(comment)
-            
-        default : return state;
-    }
-}
+    case ActionTypes.COMMENTS_FAILED:
+      return {...state, errMess: action.payload};
+
+    case ActionTypes.ADD_COMMENT:
+        var comment = action.payload;
+        comment.id = state.comments.length;
+        comment.date = new Date().toISOString();
+        return { ...state, comments: state.comments.concat(comment)};
+
+    default:
+      return state;
+  }
+};
