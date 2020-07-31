@@ -1,5 +1,6 @@
 import React from 'react';
 import {Media} from 'reactstrap';
+import {baseUrl} from '../shared/baseUrl';
 
 function RenderLeader(props)
 {
@@ -7,7 +8,7 @@ function RenderLeader(props)
         <div key={props.leader.id} className="col-12 mt-5">
             <Media tag="li" >
                 <Media left middle>
-                    <Media object src={props.leader.image} alt={props.leader.name} ></Media>
+                    <Media object src={baseUrl+props.leader.image} alt={props.leader.name} ></Media>
                 </Media>
                 <Media body className="ml-5">
                     <Media heading>{props.leader.name}</Media>
