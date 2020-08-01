@@ -183,7 +183,7 @@ export const leadersLoading = () => ({
 });
 
 export const leadersFailed = (errmess) => ({
-    type: ActionTypes.PROMOS_FAILED,
+    type: ActionTypes.LEADERS_FAILED,
     payload: errmess
 });
 
